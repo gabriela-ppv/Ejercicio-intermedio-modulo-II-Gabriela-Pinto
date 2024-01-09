@@ -12,19 +12,18 @@ function getRandomNumber(max) {
   console.log("numberRandon es" + numberRandon);
   return numberRandon;
 }
-
-function playing(movplayer) {
-  movplayer = select.value;
+function playing() {
+  const movplayer = select.value;
   if (movplayer === numberRandon) {
     msg.innerHTML = "Empate";
   } else if (
-    (movplayer === "piedra" && numberRandon <= 3) ||
-    (movplayer === "papel" && numberRandon >= 7) ||
-    (movplayer === "tijera" && numberRandon > 3 && numberRandon < 7)
+    (numberRandon <= 3 && movplayer === "papel") ||
+    (numberRandon >= 7 && movplayer === "tijera") ||
+    (numberRandon > 3 && numberRandon < 7 && movplayer === "piedra")
   ) {
-    msg.innerHTML = "Has ganado";
+    msg.innerHTML = "Has ganado!";
   } else {
-    msg.innerHTML = "Haz perdido";
+    msg.innerHTML = "Has perdido";
   }
 }
 
